@@ -1,0 +1,32 @@
+Ibraim Elvin
+	321CC
+
+----------- CERINTA 1 -----------
+
+	Pentru implementarea cerintei 1, am folosit functiile "init", "playX", "playO", "verifyEnd"
+si "printfisc1".
+
+init:
+	Initializeaza arborele si citeste din fisier starea de la care porneste jocul, iar fiecare loc
+liber se pastreaza in vectorul "free" al fiecarui nod din arbore. De asemenea pentru fiecare loc
+liber se incrementeaza "posibleMoves", camp al fiecarui nod pentru numarul de copii al nodului.
+Se seteaza adancimea "depth" cu 0 (se va folosi ulterior pentru afisarea numarului corespunzator
+de tab-uri).
+
+verifyEnd:
+	Verifica pentru starea data daca unul dintre jucatori este castigator. (intoarce 1 daca da si 0
+in caz contrar).
+
+playX:
+	Pentru fiecare fiu se aloca memorie, numarul de fii al fiecarui fii se decrementeaza, adancimea
+incrementeaza. Se copiaza starea trecuta a jocului si se modifica corespunzator, stiind cine va muta
+si locurile libere. In cazul in care jocul nu s-a terminat, se afla din nou locurile disponibile 
+pentru a nu avea toti copii unui nod cu aceeasi mutare.
+
+**Diferenta dintre playX si playO este doar atunci cand se stabileste daca se pune 'X' sau 'O' in
+functie de numarul de pozitii libere. playX se foloseste atunci cand X-ul este jucatorul care a 
+inceput jocul si playO in caz contrar. Initial am pornit cu implementarea doar pentru X jucator
+care incepe jocul.**
+
+----------- CERINTA 2 -----------
+	Nu este rezolvata complet
