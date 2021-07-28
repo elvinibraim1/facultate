@@ -1,0 +1,78 @@
+Ibraim Elvin
+	321CC
+
+
+----- PROBLEMA 1 ----- Crypto
+	
+	Am folosit un vector de perechi pentru a stoca cele N perechi de calculatoare.
+Dupa citirea din fisier, am sortat crescator vectorul in functie de Pi, iar in caz de
+egalitate, in functie de Ui. Aceasta sortare este folosita pentru a se upgrada 
+calculatoarele cu puterea cea mai mica si cele cu pretul mai mic in caz de egalitate.
+
+	In functia solve, am rezolvat problema astfel:
+Atat timp cat B (banii) > 0, am scazut pretul de upgrade, in cazul in care dupa scadere
+B < 0 se termina while-ul. In caz contrar, folosind un index, am incrementat Pi.
+Verific Pi-ul curent cu cel urmator, daca este mai mic sau egal atunci se ia din nou
+indexul egal cu 0 pentru upgrade-uri. In contrar, creste indexul.
+
+	La final, dupa o sortare, Pi-ul primuli element va fi puterea totala a sistemului de
+minat intrucat se ia in considerare minimul dintre puterile de minare.
+
+	Dupa adaugarea in vector din fisier, am mai adaugat un calculator fictiv pentru
+a rezolva o posibila eroare de tip "indexOutOfBounds" cand se facea verificarea dintre
+ultimul calculator si urmatorul care nu exista. Daca se ajunge sa se verifice cu acel
+calculator fictiv, indexul se va lua din nou 0.
+
+	Complexitatea temporala : T = O(n* n).
+	Complexitatea spatiala : S = O(n* n).
+
+----- PROBLEMA 2 ----- Stocks
+	
+	Am ales o abordare de tip rucsac inspirata din exemplele de la laborator, folosind
+programarea dinamica. Am utilizat un vector "dp" de dimensiune n* b* l (n - numarul de
+actiuni studiate, b - numarul de bani stransi, l - numarul maxim de bani pierduti in cel mai 
+rau caz). Pentru cazul de baza am setat dp[0][i][j] = 0. In cazul general se parcurge
+vectorul in O(n*b*l) cu 3 for-uri. Daca este posibila o noua solutie se alege maximul dintre
+solutia anterioara si solutia curenta "sol_aux". In final element-ul dp[n][b][l] va
+reprezenta profitul maxim in cel mai bun caz posibil.
+
+	O noua solutie este posibila daca indicele bug este mai mare sau egal decat pretul curent
+al actiunii (se poate cumpara actiunea cu bug <= b bani) si in acelasi timp daca indicele
+los este mai mare decat diferenta dintre pretul curent si pretul minim al actiunii (daca
+pierderea los nu depaseste l). In acest caz lui sol_aux i se atribuie profitul maxim care
+a putut fi obtinut anterior la care se adauga profitul maxim (maxim[i] - current[i]).
+
+	Complexitatea temporala : T = O(n* b* l).
+	Complexitatea spatiala : S = O(n* b* l).
+
+----- PROBLEMA 3 ----- Valley
+
+	Din citirea din fisier rezulta un intreg 'n' (numarul de varfuri) si un vector 'v' de n
+elemente de tip long. Timpul minim in care se poate creea o vale a fost calculat prin 
+intermediul functiei "timeSpent" care returneaza un long care va fi dat ca parametru, 
+ulterior, functiei de scriere in fisier.
+
+	Am tratat 2 cazuri speciale la inceput si anume:
+-Daca minimul se afla in ultimul element, se creeaza un prefix (ultimul si penultimul
+element) trebuie sa fie in ordine descrescatoare si apoi se creeaza sufixul (se verifica
+primele elemente de la 0 pana la penultimul sa fie in ordine descrescatoare, in caz contrar
+timeS creste).
+-Daca minimul este in primul element, se creeaza un sufix si apoi se verifica ca elementele 
+de la sfarsit pana la al doilea element sa fie in ordine descrescatoare, in caz contrar 
+timeS creste.
+
+	In cazul general, aflu indexul minimului cu ajutorul unui for, apoi creez un sufix de la
+inceput pana la minim si un prefix de la sfarsit pana la minim.
+
+	Sufixul se formeaza astfel:
+In "first" este initial primul element din vector, el trebuie sa fie mai mare sau egal
+decat toate elementele pana la minim. Daca este mai mare sau egal, se pastreaza in first
+noua valoare cu care se compara, daca este mai mic, se adauga diferenta la timeS.
+
+	Prefixul se formeaza asemanator, parcugerea se face de la sfarsit pana la minim. Minimul
+este considerat primul, in cazul in care sunt mai multe elemente cu aceeasi valoare.
+
+	Functia returneaza timeS, timpul total minim pentru crearea unei vai.
+
+	Complexitatea temporala : T = O(n* n).
+	Complexitatea spatiala : S = O(n* n).
