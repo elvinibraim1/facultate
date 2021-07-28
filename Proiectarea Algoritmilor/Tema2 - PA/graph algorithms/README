@@ -1,0 +1,45 @@
+Ibraim Elvin
+	321CC
+
+
+----- PROBLEMA 1 ----- Poduri
+
+Am citit din fisier n, m, x, y pe care le-am folosit pentru a crea o Lista de stringuri (fiecare
+element din lista reprezinta o linie din matricea din fisierul de intrare). Primul si ultimul
+element din lista este defapt o linie de (m + 2) caractere '0' si primul si ultimul caracter din
+restul liniilor vor fi '0'. Caracterul '0' este defapt o iesire din matrice. Apoi am construit
+lista de adiacenta parcurgand lista stringuri denumita "line". Un caracter se gaseste astfel:
+"line.get(i).charAt(j), cu i de la 1 la n (numarul de linii ale matricii de la intrare) si j de
+la 1 la m (numarul de coloane ale matricii de la intrare).  Daca caracterul este 'V' (pod
+de tip vertical), nodul poate avea ca vecini doar elementele de sus sau de jos din matrice.
+Daca este "O" (pod de tip orizontal), nodul poate avea ca vecini elementele din stanga sau
+din dreapta. Pentru podul de tip D (dublu), nodul poate avea vecini in toate cele 4 directii.
+Se verifica vecinii fiecarui pod si se adauga in lista de adiacenta nodurile corespunzatoare.
+De asemenea daca un nod este invecinat cu un caracter de tip iesire ('0'), atunci se adauga
+in lista de noduri "iesire" nodul respectiv.
+Se face parcurgerea BFS si se verifica distanta minima de la nodul sursa (dat de coordonatele
+x si y) pana la fiecare nod care se invecineaza cu o iesire). Functia "bfs" returneaza acest
+minim la care se adauga 1, minim care se va afisa in fisierul de iesire.
+
+----- PROBLEMA 2 ----- Adrese
+Pentru problema 2 am implementat o clasa "Persoana" cu 3 campuri (String name, int n - numarul de
+mail-uri, ArrayList<String> mails - lista de mail-uri). Clasa are urmatoarele functii:
+Persoana - contructor;
+modifyName - de tip void, primeste un String name si modifica numele unei persoane cu minimul
+			lexicografic;
+addMails - de tip void, primeste o lista de mail-uri si adauga in lista de mail-uri a persoanei
+			respective doar daca un mail nu exista deja (de asemenea se incrementeaza si n=ul);
+containsMail - de tip int, intoarce 1 daca un mail primit exista in lista de mail-uri si 0 in
+			 caz contrar;
+mailSort - de tip void, sorteaza lista de mail-uri;
+compareTo - pentru ordonarea unei liste de persoane in functie de numarul de mail-uri, apoi
+			lexicografic.
+
+Am citit din fisier n (numarul total de persoane), pentru fiecare persoana, am salvat numele
+si numarul de mail-uri. Creez apoi o lista de mail-uri, citita din fisier, cu care verific
+daca persoana exista deja sau nu. Pentru fiare mail, verific in lista de persoane daca exista
+deja o persoana cu acest mail, daca da se apeleaza functia modifyName si addMails pentru acea
+persoana. In caz contrar, doar se adauga o noua persoana in lista. Sortez pentru fiecare
+persoana lista de mail-uri.
+Inainte de afisare sortez si lista de persoane cu Colections.sort care se foloseste de
+functia compareTo.
