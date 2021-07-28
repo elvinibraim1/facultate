@@ -1,0 +1,36 @@
+Ibraim Elvin
+	321CC
+
+Nodul unui graf contine indexul de tip int (actorii au un index care le este atribuit in functie
+de adaugarea la graf) si numele actorului de tip char*. Graful este reprezentat
+folosind liste de adiacenta.
+
+----------- PARSARE GRAF --------
+
+Se citeste initial numarul de filme. Pentru fiecare film se retine numarul de actori,
+apoi se citesc actorii. In vectorul relatedActors se retin indecsii actorilor cu ajutorul
+functiei findIndex (daca exista exista deja actorul in graf, functia va intoarce indexul,
+in caz contrar functia va intoarce -1). Pentru fiecare actor citit se va retine in related_actors
+indexul (pentru cazul in care functia find_index intoarce -1, se va adauga un nod in graf pentru
+noul actor si se retine noul index). Se adauga muchii intre toti actorii din filmul respectiv
+cu functia add_edge.
+
+----------- CERINTA 1 -----------
+Dupa parsare, folosind parcurgeri de tip dfs, am aflat numarul maxim de actori dintre toate 
+componentele conexe. Functia "maximNoes" retine in 2 variabile globale indexul de la care
+a plecat dfs-ul si numarul de noduri din componenta conexa. Pentru fiecare nod din graf se
+verifica daca a fost parcurs, in caz contrar se face un dfs; in variabilele globale se retine
+doar maximul de noduri, respectiv indexul de la care a plecat parcugerea dfs. Functia "dfsMax"
+mai face o parcurgere dfs pentru componenta conexa cea mai mare si scrie un vector de actori
+cu numele tuturor actorilor din distributia respectiva. Dupa o sortare alfabetica se scriu
+in fisierul de output toti actorii.
+
+----------- CERINTA 2 -----------
+Pentru cerinta 2 am citit cele doua linii suplimentare reprezentand numele actorilor pentru
+care se va afla gradul de inrudire. Pentru simplitate m-am folosit "node" pentru a crea
+o structura de tip queue folosita in functia minimDist care este defapt un bfs pentru a afla
+gradul de inrudire a 2 actori. Se afla indicii din graf al celor 2 actori si se apeleaza 
+functia minimDist care intoarce gradul de inrudire. Daca gradul de inrudire este 0, se scrie
+in fisier -1, in caz contrar se scrie rezultatul functiei.
+
+----------- CERINTA 3 -----------
