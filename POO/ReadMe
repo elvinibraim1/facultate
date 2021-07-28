@@ -1,0 +1,30 @@
+Ibraim Elvin, 321CC
+
+Consider ca gradul de dificultate al temei este unul corect, tema parcurge materia in intregime si fixeaza informatiile. Timpul alocat a fost unul destul de mare.
+
+Clasa "Aplication":
+	A fost implementata prin intermediul design pattern-ului Singleton, pentru a limita numarul de instante a aplicatiei la 1.
+
+Clasa "Consumer":
+	Este o clasa abstracta care contine si o functie auxiliara "getExperience" care returneaza un int (numarul total de ani de experienta al unui consumer). Aceasta functie ajuta la determinarea scorului total, in clasa "Job"(functia meetsRequirments) si la calcularea impozitului unui lucrator in departamentul "Finance".
+
+Clasa "User" extinde clasa abstracta "Consumer":
+	Functiile "convert" si "getTotalScore" sunt explicate in comentarii
+
+Clasa "Recruiter" extinde clasa "Employee" ("Employee" extinde "Consumer" si reprezinta un angajat):
+	Contine un manager caruia i se adauga, prin metoda "evaluate" cate un request in lista de reques-uri din clasa "Manager". Acest manager este gasit prin metoda "getCompany", stiind numele companiei la care este angajat recruiter-ul.
+
+Clasa "Request":
+	Va implementa interfata "Comparable" pentru ca lista din clasa "Manager" sa poata fi sortata descrecator dupa scor.
+
+Clasa "Manager": 
+	Lista de request-uri este sortata descrescator, dupa scor in functia "Process"
+
+Clasa "Job":
+	Flag-ul este true atunci cand job-ul este deschis, false in caz contrar.
+
+Clasa "departmentFactory":
+	Implementata conform factory pattern-ului.
+
+Clasa "Resume":
+	A fost modificata ulterior conform builder pattern-ului
