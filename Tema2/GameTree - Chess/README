@@ -27,6 +27,3 @@ pentru a nu avea toti copii unui nod cu aceeasi mutare.
 functie de numarul de pozitii libere. playX se foloseste atunci cand X-ul este jucatorul care a 
 inceput jocul si playO in caz contrar. Initial am pornit cu implementarea doar pentru X jucator
 care incepe jocul.**
-
------------ CERINTA 2 -----------
-	Nu este rezolvata complet
