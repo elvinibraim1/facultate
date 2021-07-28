@@ -1,0 +1,50 @@
+Pentru implementarea programului am folosit 2 liste dublu inlantuite.
+	Prima lista are ca tip de date un caracter.
+	A doua lista care ca tip de date o lista de caractere.
+
+Programul adauga initial in lista Text primul rand cu ajutorul functiei "getRow",
+prima linie din input nu va fi o comanda.
+
+Functia "getRow" returneaza o lista de caractere care este creata prin citirea din input
+pana la '\n'.
+
+Cursorul este implementat prin intermediul a doua variabile de tip int care stocheaza 
+numarul liniei si caracterul din linie la care se afla.
+
+Functia "addTailRow" este de tipul int, ea adauga in lista de liste o lista ce reprezinta un rand 
+si returneaza 1 daca adaugarea a fost posibila si 0 in caz contrar.
+
+Am folosit pentru restul liniilor din input un while in care se verifica fiecare linie din input
+daca linie este "::i" atunci se ajunge la un switch care verifica tipul comenzii de editare a
+textului, in caz contrat se adauga in text linia si se modifica cursorul.
+
+Switch-ul se face in functie de primul caracter din linia care reprezinta o comanda. Pentru: 
+	's' - se trece la urmatoarea linie si se salveaza text-ul care va fi afisat la sfarsit;
+	'q' - se afiseaza textul in fisierul output;
+	'g' - lui x i se atribuie valoarea 2 si se verifica tipul comenzii (gl sau gc) apoi se trece
+			la urmatoarea linie;
+	'd' - lui x i se atribuie valoarea 2 si se verifica tipul comenzii (dl sau d);
+	':' - a  doua aparitie a lui "::i", deci se iese se continua de la inceputul while-ului cu x = 1;
+	'b' - lui x i se atribuie valoarea 2 si se trece la urmatoarea linie dupa ce s-a sters caracterul
+			corespunzator;
+	'u' - se verifica daca x = 1 (x va fi 2 daca s-a executat o comanda inainte), in caz afirmativ
+			se sterge ultima linie intrucat ultima operatie a fost adaugarea ei si se trece la 
+			urmatorea linie;
+	'r' - nu este implementat.
+	
+Comanda gl line modifica cursorul in functie de line.
+Comanda gc character line modifica cursorul in functie de line si character.
+Comanda gc character modifica cursorul in functie de linia curenta si character.
+
+Comanda d sterge caracater-ul de dinaintea cursorului cu o functie remove pentru o lista
+de caractere si o functie care returneaza nodul listei de liste in functie de line.
+Comanda d [chars] sterge mai multe caractere.
+Comanda dl sterge linia curenta cu un remove pentru lista de liste.
+Comanda dl line sterge linia in functie de line.
+
+Functia "printText" scrie in output folosind printOut pentru fiecare nod din lista de liste data.
+Functia "printOut" scrie caracter cu caracter o lista de caractere data in output si endline-ul 
+corespunzator.
+
+Am folosit functiile de adaugare, stergere, initializare, free pe care le-am implementat in 
+laboratoare si le-am adaptat corespunzator.
