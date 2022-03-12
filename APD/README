@@ -1,0 +1,17 @@
+Ibraim Elvin 331CC - Tema 1 APD
+
+Pentru paralelizarea algoritmului secvential, am modificat functiile "compute_fitness_function"
+si "run_genetic_algorithm". Primei functii i-am modificat parametrii, nu am mai avut nevoie de
+object_count, dar am adaugat 2 parametrii de tip int (start si end).
+Pentru a doua functie am creat o structura care contine toti parametrii necesari si care va fi
+transmisa din main atunci cand se creeaza thread-urile. Am paralelizat creerea primei generatii.
+In continuare qsortul se va executa o singura data, am ales pentru threadID 0.
+Pentru paralelizarea for-urilor din for-ul mare am calculat start si end inainte de fiecare si
+bariere pentru sincronizare. For-ul de la crossover nu a fost paralelizat.
+Apoi am folosit un algoritm de sortare paralela de la laboratorul 3 pentru a inlocui ambele qsort-uri.
+
+start si end se calculeaza cu formula de la laborator si cu o functie MIN definita la inceput.
+
+#define MIN(x, y) (((x) < (y)) ? (x) : (y))
+
+Am folosit doar bariere pentru sincronizarea din zonele critice dupa fiecare for.
